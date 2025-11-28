@@ -1,8 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-
 import productsRoutes from './src/routes/products.routes.js';
+import authRoutes from './src/routes/auth.routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,10 +17,11 @@ const corsConfig = {
     optionsSuccessStatus: 204                                   // respuesta preflight exitosa
 };
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsConfig));
+// app.use(express.json());
+app.use(bodyParser.json());
 
+app.use('/auth', authRoutes);
 
 app.use((req, res, next) => {
     console.log(`Index->Datos recibidos->metodo:${req.method} url:${req.url}`);
@@ -28,18 +29,14 @@ app.use((req, res, next) => {
     next();
 });
 
-//Rutas.
 app.use('/api', productsRoutes);
 
-//Manejo de rutas no definidas.
 app.use((req, res, next) => {
     res.status(404).send('<h2>Recurso no encontrado o ruta inválida</h2>');
 });
 
-
-
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${ PORT }`);
+    console.log(`Servidor corriendo en:  http://localhost:${ PORT }`);
 });
 
 
