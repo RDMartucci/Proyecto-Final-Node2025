@@ -4,7 +4,7 @@ export async function getAllProducts(req, res) {
     // console.log("controllers->getAllProductsController");
     try {
         const products = await productsService.getAllProductsService();
-        // console.log("controllers-obtenerProductos:", products);
+        console.log("controllers-obtenerProductos:", products);
         res.status(200).json(products);
     } catch (error) {
         console.error("Error en getAllProductsController: ", error);
@@ -27,7 +27,7 @@ export async function getProductById(req, res) {
         console.error("Producto no encontrado con ID:", id);
         return res.status(404).json({ error: 'Producto no encontrado' });
     }
-        // console.log("controllers-obtenerProductoPorId:", product);
+        console.log("controllers-obtenerProductoPorId:", product);
         res.status(200).json(product);    
     } catch (error) {
         console.error("Error en getProductByIdController: ", error);
@@ -45,7 +45,7 @@ export async function addProduct(req, res) {
             return res.status(400).json({ error: 'Datos de producto no proporcionados' });
         }   
         const newProduct = await productsService.addProductService(product);
-        // console.log("controllers-producto agregado:", newProduct);
+        console.log("controllers-producto agregado:", newProduct);
         res.status(201).json(newProduct);
     } catch (error) {   
         console.error("Error en addProductController: ", error);
@@ -61,7 +61,7 @@ export async function delProduct(req, res) {
             return res.status(400).json({ error: 'ID de producto no proporcionado' });
         }
         await productsService.delProductService(id);
-        // console.log("controllers-producto eliminado id:", id);
+        console.log("controllers-producto eliminado id:", id);
         res.status(200).json({ message: 'Producto eliminado correctamente' });
     } catch (error) {
         console.error("Error en delProductController: ", error);

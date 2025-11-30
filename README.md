@@ -40,7 +40,7 @@ Método: GET -> url:{url_servidor}/api/products/:id
 
 ### Crea un producto:
 (Recibe en el cuerpo (body) de la petición la información sobre el nuevo producto (en formato json) para ser guardado en el servicio de datos en la nube.)
-Por ejemplo:
+##### Por ejemplo:
 productoNuevo{
 name:valor,
 category:valor,
@@ -53,10 +53,14 @@ Método:POST -> url:{url_servidor}/api/products/create
 Método:DELETE -> url:{url_servidor}/api/products/:id
 
 ### Logueo al servidor (autenticación)
-Recibe las credenciales de usuario en el cuerpo (body) de la petición y devuelve el Bearer token si son válidas o un error de autenticación en caso contrario. Por ejemplo: { email:valor, password:valor}
+Recibe las credenciales de usuario en el cuerpo (body) de la petición y devuelve el Bearer token si son válidas o un error de autenticación en caso contrario. 
+##### Por ejemplo: { email:valor, password:valor}
 
 Método:POST -> url:{url_servidor}/auth/login
 
 Usuario registrado para ingresar:
 email:test@gmail.com
 password:123456
+
+### Link navegable (vercel): [ProyectoFinalNode2025](proyecto-final-node2025.vercel.app)
+#### Ruta: (proyecto-final-node2025.vercel.app)
