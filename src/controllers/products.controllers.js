@@ -69,3 +69,18 @@ export async function delProduct(req, res) {
     }   
 }
 
+export const updateProduct = async (req, res) => {
+    try {
+        const id = req.params.id;
+        if (!id) res.status(400).json({ message: 'ID de producto no proporcionado' });
+        const updateData = req.body;
+        const updatedProduct = await productsService.updateProductService(id, updateData);
+        if (updatedProduct) {
+            res.status(200).json(updatedProduct);
+        } else {
+            res.status(404).json({ message: 'Producto no encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error al actualizar el producto', error });
+    }
+};
