@@ -52,6 +52,17 @@ Método:POST -> url:{url_servidor}/api/products/create
 ### Elimina un producto:
 Método:DELETE -> url:{url_servidor}/api/products/:id
 
+### Actualiza un producto:
+(Recibe en el cuerpo (body) de la petición la información sobre el nuevo producto (en formato json) para ser guardado en el servicio de datos en la nube.)
+##### Por ejemplo:
+productoxActualizar{
+name:valor,
+category:valor,
+description:valor,
+price:valor}
+
+Método:PUT -> url:{url_servidor}/api/products/:id
+
 ### Logueo al servidor (autenticación)
 Recibe las credenciales de usuario en el cuerpo (body) de la petición y devuelve el Bearer token si son válidas o un error de autenticación en caso contrario. 
 ##### Por ejemplo: { email:valor, password:valor}
