@@ -4,7 +4,7 @@ export const login = async (request, resolve) => {
     console.log(`auth.controller->Datos recibidos->request:(metodo,url,body):${request.method} -url:${request.url} -body: ${JSON.stringify(request.body)}`); // Usar JSON.stringify para mostrar mejor el body
     
     if (!request.body || !request.body.email || !request.body.password) {
-        return resolve.status(400).json({ error: "Email and password are required" });
+        return resolve.status(400).json({ error: "¡Email y password son requeridos!" });
     }
     const { email, password } = request.body;
 
