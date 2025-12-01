@@ -47,3 +47,17 @@ export async function delProductService(id) {
         }
     });
 }
+
+export const updateProductService = async (id, updatedProductData) => {
+  return new Promise(async (resolve, reject) => {
+    console.log("services->updateProductService-Promise");  
+    try {
+      const updatedProduct = await productModels.updateProductModel(id, updatedProductData);
+      resolve(updatedProduct);
+    }
+    catch (error) {
+      reject(error);
+    } 
+  });
+};
+

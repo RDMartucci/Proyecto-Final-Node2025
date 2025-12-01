@@ -57,7 +57,6 @@ export async function addProductModel(product) {
     });
 }
 
-
 export function delProductModel(id) {
     return new Promise(async (resolve, reject) => {
         try {
@@ -70,4 +69,21 @@ export function delProductModel(id) {
             reject(error);
         }
     });
+}
+
+export function updateProductModel(id, product) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            await updateDoc(doc(db, collectionRef, id),
+                { ...product }
+            );
+            console.log("Documento actualizado con ID: ", id);
+            resolve({});
+        }
+        catch (error) {
+            console.error("Error al actualizar el documento: ", error);
+            reject(error);
+        }
+    }
+    );
 }
